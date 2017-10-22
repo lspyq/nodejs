@@ -7,12 +7,12 @@
 </script>
 <script>
 $(document).ready(function(){
-	$("button").click(function(){
+	//$("button").click(function(){
 		$.get("/nodejs/README.md",function(data,status){
 			//alert("数据: " + data + "\n状态: " + status);
 			console.log(data);
 		});
-	});
+	//});
 });
 </script>
 </head>
