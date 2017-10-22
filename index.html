@@ -28,7 +28,7 @@ $(document).ready(function(){
 			//$("#content").html(markdown.toHTML(data)); 
 			//console.log(markdown.toHTML(data));
 			//document.write(markdown.toHTML(data));
-			$("#preview").innerHTML = markdown.toHTML(data);
+			$("#preview").html(markdown.toHTML(data));
 			document.getElementById("content").innerHTML = markdown.toHTML('Type **Markdown** here.');
 		});
 	//});
