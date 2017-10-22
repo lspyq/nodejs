@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
-
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		
-		<title>js加载</title>
-
-	</head>
-
-	<body>
-		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
-    <script type="text/javascript" charset="utf-8">
-      //console.log(dynamicLoading.js("README.md"));
-	    //$("button").click(function(){
-		$.get("README.md",function(data,status){
-		alert("Data: " + data + "nStatus: " + status);
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+	$("button").click(function(){
+		$.get("/README.md",function(data,status){
+			alert("数据: " + data + "\n状态: " + status);
 		});
-	     //});
-			
-		</script>
-	</body>
+	});
+});
+</script>
+</head>
+<body>
 
+<button>发送一个 HTTP GET 请求并获取返回结果</button>
+
+</body>
 </html>
