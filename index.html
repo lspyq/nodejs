@@ -15,7 +15,7 @@ $(document).ready(function(){
 			//console.log(status);
 			//document.write(data);
 			//$("#content").html(data); 
-			//$("#content").html(marked(data)); 
+			$("#content").html(markdown.toHTML(data)); 
 			console.log(markdown.toHTML(data));
 			document.write(markdown.toHTML(data));
 		});
