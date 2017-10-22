@@ -12,13 +12,14 @@ $(document).ready(function(){
 			//alert("数据: " + data + "\n状态: " + status);
 			console.log(status);
 			document.write(data);
+			$("#content").html(marked(data)); 
 		});
 	//});
 });
 </script>
 </head>
 <body>
-
+<div id="content"></div>
 <button>发送一个 HTTP GET 请求并获取返回结果</button>
 
 </body>
