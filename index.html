@@ -9,7 +9,8 @@
 
 </head>
 <body>
-	222
+	333
+<div id="preview" style="color: red"></div>
 <div id="content" style="color: red"></div>
 <!--<button>发送一个 HTTP GET 请求并获取返回结果</button>-->
 
@@ -27,7 +28,8 @@ $(document).ready(function(){
 			//$("#content").html(markdown.toHTML(data)); 
 			//console.log(markdown.toHTML(data));
 			//document.write(markdown.toHTML(data));
-			$("preview").innerHTML = markdown.toHTML(input.value);
+			$("preview").innerHTML = markdown.toHTML(data);
+			document.getElementById("content").innerHTML = markdown.toHTML('Type **Markdown** here.');
 		});
 	//});
 });
