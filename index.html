@@ -11,7 +11,7 @@ $(document).ready(function(){
 	//$("button").click(function(){
 		$.get("/nodejs/README.md",function(data,status){
 			//alert("数据: " + data + "\n状态: " + status);
-			console.log(status);
+			//console.log(status);
 			document.write(data);
 			$("#content").html(marked(data)); 
 		});
