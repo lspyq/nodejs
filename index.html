@@ -8,7 +8,7 @@
 <script>
 $(document).ready(function(){
 	$("button").click(function(){
-		$.get("/README.md",function(data,status){
+		$.get("nodejs/nodejs/README.md",function(data,status){
 			alert("数据: " + data + "\n状态: " + status);
 		});
 	});
