@@ -13,15 +13,11 @@
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8">
       //console.log(dynamicLoading.js("README.md"));
-	    $(function(){
-		    $.ajax({
-			url: 'README.md',
-			dataType: 'text',
-			success: function(data) {
-			    alert(data);
-			}
-		    });
+	    $("button").click(function(){
+		$.get("README.md",function(data,status){
+		alert("Data: " + data + "nStatus: " + status);
 		});
+	     });
 			
 		</script>
 	</body>
