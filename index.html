@@ -21,7 +21,7 @@ $(document).ready(function(){
 			//$("#content").html(markdown.toHTML(data));
 			//console.log($("h1")[0].innerHTML);
 			//$("title").html($("h1")[0].innerHTML);
-			
+			var converter = new Markdown.Converter();
 			$("#content").html(converter.makeHtml(data));
 			console.log($("h1"));
 			console.log($("h1")[0].innerHTML);
