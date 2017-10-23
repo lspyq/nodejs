@@ -29,16 +29,16 @@ $(document).ready(function(){
 		//console.log(str1(url));
 		
 		//var str;
-		$.get("README/"+i+".md", function(data, status) {
+		$.get("url", function(data, status) {
 			var converter = new Markdown.Converter();
 			var str = converter.makeHtml(data);
-			console.log(str);
-		});
-		//str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
-		//str = str.replace(/<\/h1>/,'</a></h1>');
-		//console.log(str);
-		$("#content").append("<div>"+str+"</div>");
+			//console.log(str);
 		
+		str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
+		str = str.replace(/<\/h1>/,'</a></h1>');
+		console.log(str);
+		$("#content").append("<div>"+str+"</div>");
+		});
 	}
 });
 		function str1(url) {
