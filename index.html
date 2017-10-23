@@ -24,8 +24,8 @@ $(document).ready(function(){
 	for (var i=0;i<2;i++){
 		var url = "README/"+i+".md";
 		
-		var converter = new Markdown.Converter();
-		$("#content").append('<div id="content'+i+'"></div>');
+		//var converter = new Markdown.Converter();
+		//$("#content").append('<div id="content'+i+'"></div>');
 		
 		var xhr = new XMLHttpRequest();
 		xhr.open('get', url, true);
@@ -34,7 +34,9 @@ $(document).ready(function(){
 			if(xhr.readyState == 4) {
 				//var r = eval('(' + xhr.responseText + ')');
 				var r = xhr.responseText;
-				console.log(r)
+				
+				console.log(i);
+				console.log(r);
 				//$("title").html(r.title + " " + document.title);
 				$("content").html(r);
 			}
