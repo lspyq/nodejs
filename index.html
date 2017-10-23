@@ -19,7 +19,7 @@
 	//var str = "";	
 //$(document).ready(function(){
 	//$("button").click(function(){
-	//var converter = new Markdown.Converter();
+	var converter = new Markdown.Converter();
 	
 		var xhr = new XMLHttpRequest();
 	for (var i=1;i<=2;i++){
@@ -36,6 +36,7 @@
 				var r = xhr.responseText;
 				//return r;
 				console.log(i);
+				r = converter.makeHtml(r);
 				console.log(r);
 				//$("title").html(r.title + " " + document.title);
 				//$("content").html(r);
