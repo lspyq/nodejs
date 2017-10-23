@@ -18,6 +18,9 @@
 	<script>
 $(document).ready(function(){
 	//$("button").click(function(){
+	var patt1 = /(.*)/;
+	
+	//var url1 = str.match(patt1)
 		$.get("/README.md",function(data,status){
 			//$("#content").html(markdown.toHTML(data));
 			//console.log($("h1")[0].innerHTML);
