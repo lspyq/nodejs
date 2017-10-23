@@ -22,25 +22,20 @@ $(document).ready(function(){
 	//var converter = new Markdown.Converter();
 	
 	for (var i=0;i<5;i++){
-		
-		//x=x + "该数字为 " + i + "<br>";
 		var url = "README/"+i+".md";
-		//var str = str1(url);
-		//console.log(str1(url));
-		
 		//var str;
-		$.get(url, function(data, status) {
+		 var str = $.get(url, function(data, status) {
 			var converter = new Markdown.Converter();
 			var str = converter.makeHtml(data);
 			//console.log(str);
 		
 		str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
 		str = str.replace(/<\/h1>/,'</a></h1>');
-			this.str = str;
 		//console.log(str);
-		$("#content").append("<div>"+str+"</div>");
+			return str;
+		//$("#content").append("<div>"+str+"</div>");
 		});
-		console.log(this.str);
+		$("#content").append("<div>"+str+"</div>");
 	}
 });
 		function str1(url) {
