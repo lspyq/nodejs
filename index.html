@@ -19,7 +19,7 @@ $(document).ready(function(){
 	//$("button").click(function(){
 		$.get("/nodejs/README.md",function(data,status){
 			$("#content").html(markdown.toHTML(data));
-			console.log($("h1").innerHTML);
+			console.log($("h1")[0].innerHTML);
 			console.log($("h1"));
 		});
 	//});
