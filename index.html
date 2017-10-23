@@ -18,19 +18,24 @@
 	<script>
 $(document).ready(function(){
 	//$("button").click(function(){
-	var patt1 = /(.*)/;
-	
-	//var url1 = str.match(patt1)
-		$.get("/README.md",function(data,status){
+	for (var i=0;i<5;i++){
+		//x=x + "该数字为 " + i + "<br>";
+		$.get("README/"+i+".md",function(data,status){
 			//$("#content").html(markdown.toHTML(data));
 			//console.log($("h1")[0].innerHTML);
 			//$("title").html($("h1")[0].innerHTML);
 			var converter = new Markdown.Converter();
 			$("#content").html(converter.makeHtml(data));
-			console.log($("h1"));
-			console.log($("h1")[0].innerHTML);
-			$("title").html($("h1")[0].innerHTML);
+			//$("#content").html($("h1")[0].innerHTML);
+			//console.log($("h1"));
+			//console.log($("h1")[0].innerHTML);
+			//$("title").html($("h1")[0].innerHTML);
 		});
+		
+		
+		
+	}
+		
 	//});
 	
 	
