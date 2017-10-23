@@ -17,7 +17,7 @@
 	<script src="https://cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
 	<script>
 	//var str = "";	
-//$(document).ready(function(){
+$(document).ready(function(){
 	//$("button").click(function(){
 	var converter = new Markdown.Converter();
 	
@@ -37,6 +37,11 @@
 				//return r;
 				console.log(i);
 				r = converter.makeHtml(r);
+				
+			r = r.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
+			r = r.replace(/<\/h1>/,'</a></h1>');
+				$("#content").append('<div id="content'+i+'">'+r+'</div>');
+
 				console.log(r);
 				//$("title").html(r.title + " " + document.title);
 				//$("content").html(r);
@@ -50,7 +55,7 @@
 		//console.log(i+"##$$$$$$$$$$$$########");
 
 	}
-//});
+});
 	function str1(url,i) {
 		$.get(url, function(data, status) {
 			var converter = new Markdown.Converter();
