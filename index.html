@@ -26,9 +26,20 @@ $(document).ready(function(){
 		
 		var converter = new Markdown.Converter();
 		$("#content").append('<div id="content'+i+'"></div>');
-		$("#content"+i).load("README/"+i+".md");
-		console.log($("#content"+i).html());
-		console.log($("#content"+i).text());
+		
+		$("#content"+i).load("README/"+i+".md",function(responseTxt,statusTxt,xhr){
+		      if(statusTxt=="success")
+			console.log("外部内容加载成功!");
+			console.log($("#content"+i).html());
+		      if(statusTxt=="error")
+			console.log("Error: "+xhr.status+": "+xhr.statusText);
+		    });
+		
+		
+		
+		
+		
+		
 		//$("#content"+i).html() = converter.makeHtml($("#content"+i).html());
 		//str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
 			//str = str.replace(/<\/h1>/,'</a></h1>');
