@@ -25,7 +25,7 @@ $(document).ready(function(){
 			//console.log($("h1")[0].innerHTML);
 			//$("title").html($("h1")[0].innerHTML);
 			var converter = new Markdown.Converter();
-			$("#content").html("<div>"+converter.makeHtml(data)+"</div>");
+			$("#content").append("<div>"+converter.makeHtml(data)+"</div>");
 			//$("#content").html($("h1")[0].innerHTML);
 			//console.log($("h1"));
 			console.log(converter.makeHtml(data));
