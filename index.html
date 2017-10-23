@@ -30,7 +30,7 @@ $(document).ready(function(){
 		$("#content"+i).load("README/"+i+".md",function(responseTxt,statusTxt,xhr){
 		      if(statusTxt=="success")
 			console.log("外部内容加载成功!");
-			console.log($("#content").html());
+			console.log($("#content"+i).html());
 		      if(statusTxt=="error")
 			console.log("Error: "+xhr.status+": "+xhr.statusText);
 			//return
