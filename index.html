@@ -19,20 +19,15 @@
 		var i;
 $(document).ready(function(){
 	//$("button").click(function(){
-	
+	var converter = new Markdown.Converter();
 	for (i=0;i<5;i++){
+		console.log(i+"###$$$$$$$$$$$$$$$$$$$$$$###################");
 		//x=x + "该数字为 " + i + "<br>";
 		$.get("README/"+i+".md",function(data,status){
-			if(data){
-				console.log('有');
-			   }else{
-				console.log('没有');
-				return
-			   }
 			//$("#content").html(markdown.toHTML(data));
 			//console.log($("h1")[0].innerHTML);
 			//$("title").html($("h1")[0].innerHTML);
-			var converter = new Markdown.Converter();
+			
 			var str = converter.makeHtml(data);
 			//str = "<h1>1欢迎使用 Cmd Markdown 编辑阅读器</h1>";
 			//$("#content").html($("h1")[0].innerHTML);
