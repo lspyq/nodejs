@@ -27,12 +27,13 @@ $(document).ready(function(){
 		$.get(url, function(data, status) {
 			var converter = new Markdown.Converter();
 			str = converter.makeHtml(data);
+			console.log(str);
 			
 		});
-		str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
-			str = str.replace(/<\/h1>/,'</a></h1>');
+		//str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
+			//str = str.replace(/<\/h1>/,'</a></h1>');
 			console.log(str);
-		console.log(i+"##$$$$$$$$$$$$########");
+		//console.log(i+"##$$$$$$$$$$$$########");
 
 	}
 });
