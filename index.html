@@ -20,6 +20,14 @@
 $(document).ready(function(){
 	//$("button").click(function(){
 	var converter = new Markdown.Converter();
+	function str1(url) {
+		var converter = new Markdown.Converter();
+		var str;
+		$.get(url, function(data, status) {
+			str = converter.makeHtml(data);
+		});
+		return str;
+	}
 	for (var i=0;i<5;i++){
 		
 		//x=x + "该数字为 " + i + "<br>";
@@ -40,14 +48,7 @@ $(document).ready(function(){
 		
 	//});
 	
-	function str1(url) {
-		var converter = new Markdown.Converter();
-		var str;
-		$.get(url, function(data, status) {
-			str = converter.makeHtml(data);
-		});
-		return str;
-	}
+
 	
 });
 </script>
