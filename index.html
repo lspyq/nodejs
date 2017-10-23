@@ -24,9 +24,11 @@ $(document).ready(function(){
 		
 		//x=x + "该数字为 " + i + "<br>";
 		
-		var str = data("README/"+i+".md");
+		var str = str1("README/"+i+".md");
+		console.log(str);
 		str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
 		str = str.replace(/<\/h1>/,'</a></h1>');
+		console.log(str);
 		$("#content").append("<div>"+str+"</div>");
 		
 		
@@ -38,7 +40,7 @@ $(document).ready(function(){
 		
 	//});
 	
-	function data(url) {
+	function str1(url) {
 	var converter = new Markdown.Converter();
 	$.get(url, function(data, status) {
 
