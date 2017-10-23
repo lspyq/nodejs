@@ -16,7 +16,7 @@
 	<script src="https://cdn.bootcss.com/pagedown/1.0/Markdown.Converter.js"></script>
 	<script src="https://cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
 	<script>
-	var str = "";	
+	//var str = "";	
 $(document).ready(function(){
 	//$("button").click(function(){
 	//var converter = new Markdown.Converter();
@@ -24,13 +24,13 @@ $(document).ready(function(){
 	for (var i=0;i<5;i++){
 		var url = "README/"+i+".md";
 		
-
+		var converter = new Markdown.Converter();
 		$("#content").append('<div id="content'+i+'"></div>');
 		$("#content"+i).load("README/"+i+".md");
-		
+		$("#content"+i).html = converter.makeHtml($("#content"+i).html);
 		//str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
 			//str = str.replace(/<\/h1>/,'</a></h1>');
-			console.log(str);
+			//console.log(str);
 		//console.log(i+"##$$$$$$$$$$$$########");
 
 	}
