@@ -24,18 +24,18 @@ $(document).ready(function(){
 	for (var i=0;i<5;i++){
 		var url = "README/"+i+".md";
 		//var str;
-		 var str = $.get(url, function(data, status) {
+		console.log(i+"##$$$$$$$$$$$$########");
+		$.get(url, function(data, status) {
 			var converter = new Markdown.Converter();
 			var str = converter.makeHtml(data);
 			//console.log(str);
 		
 		str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
 		str = str.replace(/<\/h1>/,'</a></h1>');
-		//console.log(str);
-			return str;
+		console.log(str);
 		//$("#content").append("<div>"+str+"</div>");
 		});
-		$("#content").append("<div>"+str+"</div>");
+		console.log(i+"###########################");
 	}
 });
 		function str1(url) {
