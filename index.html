@@ -29,7 +29,7 @@ $(document).ready(function(){
 		//console.log(str1(url));
 		
 		var str;
-		$.get(url, function(data, status) {
+		$.get("README/"+i+".md", function(data, status) {
 			var converter = new Markdown.Converter();
 			str = converter.makeHtml(data);
 		});
