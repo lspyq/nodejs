@@ -16,14 +16,14 @@
 	<script src="https://cdn.bootcss.com/pagedown/1.0/Markdown.Converter.js"></script>
 	<script src="https://cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
 	<script>
-		var i;
+		
 $(document).ready(function(){
 	//$("button").click(function(){
 	var converter = new Markdown.Converter();
-	for (i=0;i<5;i++){
-		console.log(i+"###$$$$$$$$$$$$$$$$$$$$$$###################");
+	for (var i=0;i<5;i++){
+		var a = i;
 		//x=x + "该数字为 " + i + "<br>";
-		$.get("README/"+i+".md",function(data,status){
+		$.get("README/"+a+".md",function(data,status){
 			//$("#content").html(markdown.toHTML(data));
 			//console.log($("h1")[0].innerHTML);
 			//$("title").html($("h1")[0].innerHTML);
@@ -34,10 +34,10 @@ $(document).ready(function(){
 			//console.log($("h1"));
 			//console.log('<h1><a href="'+'README/'+i+'.md'+'">');
 			//console.log('</a></h1>');
-			str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
+			str = str.replace(/<h1>/,'<h1><a href="'+'README/'+a+'.md'+'">');
 			str = str.replace(/<\/h1>/,'</a></h1>');
 			$("#content").append("<div>"+str+"</div>");
-			console.log(i+"##########################################");
+			console.log(a+"##########################################");
 			console.log(str);
 			//console.log(status);
 			//console.log($("h1")[0].innerHTML);
