@@ -21,6 +21,12 @@ $(document).ready(function(){
 	for (var i=0;i<5;i++){
 		//x=x + "该数字为 " + i + "<br>";
 		$.get("README/"+i+".md",function(data,status){
+			if(data){
+				console.log('有');
+			   }else{
+				console.log('没有');
+				return
+			   }
 			//$("#content").html(markdown.toHTML(data));
 			//console.log($("h1")[0].innerHTML);
 			//$("title").html($("h1")[0].innerHTML);
