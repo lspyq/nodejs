@@ -21,13 +21,13 @@ $(document).ready(function(){
 	//$("button").click(function(){
 	//var converter = new Markdown.Converter();
 	
+		var xhr = new XMLHttpRequest();
 	for (var i=0;i<2;i++){
 		var url = "README/"+i+".md";
 		
 		//var converter = new Markdown.Converter();
 		//$("#content").append('<div id="content'+i+'"></div>');
-		
-		var xhr = new XMLHttpRequest();
+		console.log(i);
 		xhr.open('get', url, true);
 		xhr.send();
 		xhr.onreadystatechange = function() {
