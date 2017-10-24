@@ -1,73 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title></title>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 
-    <link href="/style.css" type="text/css" rel="stylesheet">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 
+		<link href="style.css" type="text/css" rel="stylesheet">
 
-</head>
-<body>
-<div id="content"></div>
-<!--<button>发送一个 HTTP GET 请求并获取返回结果</button>-->
+	</head>
 
-	<script src="https://cdn.bootcss.com/pagedown/1.0/Markdown.Converter.js"></script>
-	<script src="https://cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
-	<script>
-	//var str = "";	
-$(document).ready(function(){
-	//$("button").click(function(){
-	var converter = new Markdown.Converter();
-	
-		var xhr = new XMLHttpRequest();
-	for (var i=0;i<=2;i++){
-		var url = "README/"+i+".md";
-		
-		//var converter = new Markdown.Converter();
-		//$("#content").append('<div id="content'+i+'"></div>');
-		console.log(i);
-		xhr.open('get', url, false);
-		xhr.send();
-		//xhr.onreadystatechange = function() {
-			if(xhr.readyState == 4) {
-				//var r = eval('(' + xhr.responseText + ')');
-				var r = xhr.responseText;
-				//return r;
-				console.log(i);
-				r = converter.makeHtml(r);
-				
-			r = r.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
-			r = r.replace(/<\/h1>/,'</a></h1>');
-				$("#content").append('<div id="content'+i+'">'+r+'</div>');
+	<body>
+		<div id="content"></div>
+		<!--<button>发送一个 HTTP GET 请求并获取返回结果</button>-->
 
-				console.log(r);
-				//$("title").html(r.title + " " + document.title);
-				//$("content").html(r);
-			}
-		//}
-		//console.log(xhr.onreadystatechange);
-		//$("#content"+i).html() = converter.makeHtml($("#content"+i).html());
-		//str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
-			//str = str.replace(/<\/h1>/,'</a></h1>');
-			//console.log(str);
-		//console.log(i+"##$$$$$$$$$$$$########");
+		<script src="https://cdn.bootcss.com/pagedown/1.0/Markdown.Converter.js"></script>
+		<script src="https://cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
+		<script>
+			//var str = "";	
+			$(document).ready(function() {
+				//$("button").click(function(){
+				var converter = new Markdown.Converter();
+				var Article = [];
+				getData(0, 11);
 
-	}
-});
-	function str1(url,i) {
-		$.get(url, function(data, status) {
-			var converter = new Markdown.Converter();
-			str = converter.makeHtml(data);
-			str = str.replace(/<h1>/,'<h1><a href="'+'README/'+i+'.md'+'">');
-			str = str.replace(/<\/h1>/,'</a></h1>');
-			return str;
-		});
-		
-	}
-</script>
-	
-	
-</body>
+				function getData(i, c) {
+					if(window.XMLHttpRequest) {
+						//  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+						xhr = new XMLHttpRequest();
+						//xml = new getHttpRequest();
+
+					} else {
+						// IE6, IE5 浏览器执行代码
+						xhr = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+
+					var url = "README/" + i + ".md";
+					xhr.open("GET", url, true);
+					xhr.send(null);
+					//console.log(c);
+
+					//console.log(i);
+					xhr.onreadystatechange = function() {
+
+						switch(xhr.readyState) {
+							case 1: //OPENED
+								//do something
+								break;
+							case 2: //HEADERS_RECEIVED
+								//do something
+								break;
+							case 3: //LOADING
+								var data = converter.makeHtml(xhr.responseText);
+
+								data = data.replace(/<h1>/, '<h1><a href="' + 'README/' + i + '.md' + '">');
+								data = data.replace(/<\/h1>/, '</a></h1>');
+								$("#content").append('<div id="content' + i + '">' + data + '</div>');
+								Article[i] = data;
+								console.log(Article[i]);
+								i++;
+								if(i <= c) {
+									getData(i, c);
+								}
+								break;
+							case 4: //DONE
+								//do something
+
+								break;
+						}
+
+					}
+
+				}
+			});
+		</script>
+
+	</body>
+
 </html>
