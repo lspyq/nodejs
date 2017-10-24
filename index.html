@@ -51,15 +51,18 @@
 								//do something
 								break;
 							case 3: //LOADING
-								var data = converter.makeHtml(xhr.responseText);
+								if(xhr.status == 200) {
+									var data = converter.makeHtml(xhr.responseText);
 
-								data = data.replace(/<h1>/, '<h1><a href="' + 'README/' + i + '.md' + '">');
-								data = data.replace(/<\/h1>/, '</a></h1>');
-								$("#content").append('<div id="content' + i + '">' + data + '</div>');
-								Article[i] = data;
-								//console.log(Article[i]);
+									data = data.replace(/<h1>/, '<h1><a href="' + 'README/' + i + '.md' + '">');
+									data = data.replace(/<\/h1>/, '</a></h1>');
+									$("#content").append('<div id="content' + i + '">' + data + '</div>');
+									Article[i] = data;
+									console.log(Article[i]);
+
+								}
 								i++;
-								if(i <= c) {
+								if(i <= c - 1) {
 									getData(i, c);
 								}
 								break;
